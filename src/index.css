@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root{
+  --bg:#08111F;
+
+  --sidebar:#233659;
+  --card:#223554;
+
+  --primary:#2962f4;
+
+  --success:#22C55E;
+  --warning:#F59E0B;
+  --danger:#EF4444;
+
+  --text:#F9FAFB;
+  --muted:#9CA3AF;
+  --border:#324766;
+}
+
+.recharts-wrapper:focus,
+.recharts-surface:focus,
+.recharts-responsive-container:focus {
+  outline: none !important;
+}
+
+.recharts-wrapper *,
+.recharts-surface * {
+  outline: none !important;
+}
+
+/* html, body {
+  margin: 0;
+  min-height: 100%;
+  background: linear-gradient(135deg, #151515 0%, #050505 35%, #000000 50%, #050505 65%, #151515 100%);
+  overscroll-behavior-y: none;
+} */
