@@ -53,13 +53,21 @@ function Sidebar() {
       <nav
         className="
           md:hidden
-          fixed bottom-0 left-0 right-0 z-50
-          flex items-center justify-around
-         py-0
+          fixed
+          bottom-0
+          left-0
+          right-0
+          z-50
+          flex
+          items-center
+          justify-center
+          py-1
+          px-5
+         
           safe-area-bottom
         "
         style={{
-          background: "rgba(24, 36, 58, 0.85)",
+          background: "rgba(36, 47, 68, 0.85)",
           borderTop: "1px solid rgba(255,255,255,0.08)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
@@ -72,7 +80,7 @@ function Sidebar() {
             <NavLink
               key={item.path}
               to={item.path}
-              className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition-all duration-100"
+              className="flex w-16 flex-col items-center gap-0.5 py-1.5 rounded-lg transition-all duration-100"
               style={{
                 color: isActive ? "var(--primary, #4181e9)" : "rgba(255, 246, 246, 0.6)",
               }}
