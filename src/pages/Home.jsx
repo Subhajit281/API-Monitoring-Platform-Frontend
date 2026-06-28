@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import Layout from "../components/Layout";
-import previewImg from "../assets/preview3.png";
+
 import {
   ArrowRight,
   Activity,
@@ -11,6 +11,10 @@ import {
 } from "lucide-react";
 
 import PageWrapper from "../components/PageWrapper";
+import previewImg from "../assets/preview3.png";
+import heroTablet from "../assets/hero-tablet3.png";
+import heroResponsive from "../assets/hero-responsive1 (1).png";
+import heroDynamic from "../assets/hero-dynamic1.png";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -130,7 +134,7 @@ const Home = () => {
             {/* Section 1: Monitor everything */}
             <section className="mt-24 sm:mt-32 md:mt-40 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-18 items-start">
               <img
-                src="../src/assets/hero-tablet3.png"
+                src={heroTablet}
                 alt="API Monitoring Dashboard"
                 className="
                   h-[260px]
@@ -182,7 +186,7 @@ const Home = () => {
               </div>
 
               <img
-                src="../src/assets/hero-responsive1 (1).png"
+                src={heroResponsive}
                 alt="API Monitoring Dashboard"
                 className="
                   order-1
@@ -204,7 +208,7 @@ const Home = () => {
             {/* Section 3: Incidents */}
             <section className="mt-24 sm:mt-32 md:mt-40 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
               <img
-                src="../src/assets/hero-dynamic1.png"
+                src={heroDynamic}
                 alt="API Monitoring Dashboard"
                 className="
                   h-[260px]
