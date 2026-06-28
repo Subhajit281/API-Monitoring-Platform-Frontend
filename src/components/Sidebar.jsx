@@ -62,7 +62,7 @@ function Sidebar() {
           items-center
           justify-center
           py-1
-          px-5
+          px-0
          
           safe-area-bottom
         "
@@ -80,7 +80,7 @@ function Sidebar() {
             <NavLink
               key={item.path}
               to={item.path}
-              className="flex w-16 flex-col items-center gap-0.5 py-1.5 rounded-lg transition-all duration-100"
+              className="flex w-[70px]  flex-col items-center gap-0.5 py-1.5 rounded-lg transition-all duration-100"
               style={{
                 color: isActive ? "var(--primary, #4181e9)" : "rgba(255, 246, 246, 0.6)",
               }}
