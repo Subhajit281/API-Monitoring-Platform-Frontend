@@ -100,7 +100,7 @@ function CreateProjects() {
                   type="button"
                   onClick={handleCreateProject}
                   disabled={loading}
-                  className="px-3 h-9 sm:h-11 rounded-lg bg-blue-700 text-white font-semibold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base transition-all"
+                  className="px-2 h-9 sm:h-11 rounded-lg bg-blue-700 text-white font-semibold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-[14px] sm:text-base transition-all"
                 >
                   {loading ? "Creating..." : "Create & Next"}
                   <ArrowRight size={17} />

@@ -232,7 +232,7 @@ function ProjectMonitors() {
                         type="button" onClick={() => openEditModal(monitor)}
                         className="flex-1 sm:flex-none px-2 py-2.5 bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.08)] border border-white/20 text-white rounded-md font-semibold text-xs sm:text-sm transition-all"
                       >
-                        Edit Monitor
+                        Edit
                       </button>
                       <button
                         onClick={() => navigate(`/projects/${projectId}/monitors/${monitor.id}/alerts`)}
