@@ -421,14 +421,14 @@ function Navbar() {
               <Link
                 to="/login"
                 onClick={closeMobileMenu}
-                className="w-full text-center py-3 text-slate-300 hover:text-white font-medium rounded-lg hover:bg-white/5 transition-colors border border-white/10"
+                className="w-[64%] text-center py-2 text-slate-300 hover:text-white font-medium rounded-lg hover:bg-white/5 transition-colors border border-white/10"
               >
                 Log in
               </Link>
               <Link
                 to="/register"
                 onClick={closeMobileMenu}
-                className="w-full text-center py-3 font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20"
+                className="w-[64%] text-center py-2 font-medium rounded-md bg-blue-700 text-white hover:bg-blue-700 transition-colors "
               >
                 Sign up
               </Link>
