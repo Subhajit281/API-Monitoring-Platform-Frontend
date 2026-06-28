@@ -104,17 +104,17 @@ function CreateMonitor() {
   return (
     <Layout>
       <PageWrapper>
-        <main className="w-full max-w-2xl mx-auto pt-20 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-6">
+        <main className="w-[90%] max-w-3xl mx-auto pt-20 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-6">
 
           {/* HERO */}
           <section className="mb-10 sm:mb-14">
-            <p className="uppercase tracking-[0.35em] text-blue-400 text-xs sm:text-sm mb-2">
-              Uptime Control Setup
+            <p className="uppercase tracking-[0.35em] text-blue-400 text-xs font-bold mb-3 sm:mb-6">
+              Monitor Setup
             </p>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white leading-tight">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-medium text-white leading-tight">
               Create Synthetic Monitor.
             </h1>
-            <p className="text-[var(--muted)] text-base sm:text-lg max-w-2xl mt-3 sm:mt-4">
+            <p className="text-[var(--muted)] text-xs sm:text-lg max-w-2xl mt-3 sm:mt-4">
               Configure parameters to monitor uptime endpoints, alert on structural failure loops, and isolate target behaviors.
             </p>
           </section>
@@ -126,93 +126,189 @@ function CreateMonitor() {
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-full bg-[rgba(76,67,67,0.03)] border-t-2 border-blue-500 backdrop-blur-xl rounded-lg p-5 sm:p-8 space-y-5 sm:space-y-6"
+              className="w-full bg-[rgba(76,67,67,0.03)] border-t-2 border-blue-500 backdrop-blur-xl rounded-lg p-4 sm:p-8 space-y-4 sm:space-y-6"
             >
               {error && (
-                <div className="p-3 sm:p-4 rounded-xl bg-red-500/10 border border-red-500/20">
-                  <p className="text-red-400 text-sm">{error}</p>
+                <div className="p-2.5 sm:p-4 rounded-xl bg-red-500/10 border border-red-500/20">
+                  <p className="text-red-400 text-xs sm:text-sm">{error}</p>
                 </div>
               )}
 
-              {/* 1. PROJECT (READ ONLY) */}
+              {/* Project */}
               <div>
-                <label className={labelCls}>Project</label>
+                <label className={`${labelCls} text-xs sm:text-sm`}>Project</label>
+
                 <input
-                  type="text" value={fetchedProjectName} readOnly disabled
-                  className="w-full h-11 rounded-md bg-[rgba(255,255,255,0.01)] border border-white/5 px-4 text-gray-400 font-semibold cursor-not-allowed outline-none text-sm"
+                  type="text"
+                  value={fetchedProjectName}
+                  readOnly
+                  disabled
+                  className="w-full h-9 sm:h-11 rounded-md bg-[rgba(255,255,255,0.01)] border border-white/5 px-3 sm:px-4 text-gray-400 font-semibold cursor-not-allowed outline-none text-xs sm:text-sm"
                 />
               </div>
 
-              {/* 2. MONITOR NAME */}
+              {/* Monitor Name */}
               <div>
-                <label className={labelCls}>Monitor Name</label>
-                <input type="text" placeholder="eg: Portfolio API" value={monitorName} onChange={(e) => setMonitorName(e.target.value)} disabled={loading} className={inputCls} />
+                <label className={`${labelCls} text-xs sm:text-sm`}>
+                  Monitor Name
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="eg: Portfolio API"
+                  value={monitorName}
+                  onChange={(e) => setMonitorName(e.target.value)}
+                  disabled={loading}
+                  className="w-full h-9 sm:h-11 rounded-md bg-[rgba(255,255,255,0.01)] border border-white/10 px-3 sm:px-4 text-gray-300 font-semibold focus:border-blue-500 outline-none text-xs sm:text-sm"
+                />
               </div>
 
-              {/* 3. TARGET URL */}
+              {/* Target URL */}
               <div>
-                <label className={labelCls}>Target URL</label>
-                <input type="text" placeholder="eg: https://portfolio.com/api" value={targetUrl} onChange={(e) => setTargetUrl(e.target.value)} disabled={loading} className={inputCls} />
+                <label className={`${labelCls} text-xs sm:text-sm`}>
+                  Target URL
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="eg: https://portfolio.com/api"
+                  value={targetUrl}
+                  onChange={(e) => setTargetUrl(e.target.value)}
+                  disabled={loading}
+                  className="w-full h-9 sm:h-11 rounded-md bg-[rgba(255,255,255,0.01)] border border-white/10 px-3 sm:px-4 text-gray-300 font-semibold focus:border-blue-500 outline-none text-xs sm:text-sm"
+                />
               </div>
 
-              {/* 4. METHOD + STATUS — stacked on mobile, 2-col on md+ */}
+              {/* Method + Status */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className={labelCls}>Request Method</label>
-                  <select value={method} onChange={(e) => setMethod(e.target.value)} disabled={loading} className={selectCls}>
-                    {["GET","POST","PUT","PATCH","DELETE"].map(m => (
-                      <option key={m} value={m} className="bg-[#111827] text-white">{m}</option>
+                  <label className={`${labelCls} text-xs sm:text-sm`}>
+                    Request Method
+                  </label>
+
+                  <select
+                    value={method}
+                    onChange={(e) => setMethod(e.target.value)}
+                    disabled={loading}
+                    className="w-full h-9 sm:h-11 rounded-md bg-[rgba(90, 84, 84, 0.01)] border border-white/10 px-3 sm:px-4 text-gray-300 font-semibold outline-none text-xs cursor-pointer sm:text-sm"
+                  >
+                    {["GET", "POST", "PUT", "PATCH", "DELETE"].map((m) => (
+                      <option
+                        key={m}
+                        value={m}
+                        className="bg-[#111827] text-white"
+                      >
+                        {m}
+                      </option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className={labelCls}>Expected Status Code</label>
-                  <div className="relative flex items-center w-full h-11 rounded-md bg-[rgba(255,255,255,0.03)] px-3">
-                    <button type="button" onClick={() => setExpectedStatus((p) => Math.max(100, p - 1))} disabled={loading} className="text-gray-400 hover:text-white p-1 transition-colors">
-                      <Minus size={16} />
-                    </button>
-                    <input
-                      type="number" min="100" max="599" value={expectedStatus}
-                      onChange={(e) => setExpectedStatus(parseInt(e.target.value, 10) || "")}
+                  <label className={`${labelCls} text-xs sm:text-sm`}>
+                    Expected Status Code
+                  </label>
+
+                  <div className="relative flex items-center w-full h-10 sm:h-11 rounded-md bg-[rgba(255,255,255,0.03)] px-2 sm:px-3">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setExpectedStatus((p) => Math.max(100, p - 1))
+                      }
                       disabled={loading}
-                      className="w-full text-center bg-transparent text-white outline-none font-semibold text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                      className="text-gray-400 hover:text-white p-1 transition-colors"
+                    >
+                      <Minus size={14} />
+                    </button>
+
+                    <input
+                      type="number"
+                      min="100"
+                      max="599"
+                      value={expectedStatus}
+                      onChange={(e) =>
+                        setExpectedStatus(parseInt(e.target.value, 10) || "")
+                      }
+                      disabled={loading}
+                      className="w-full text-center bg-transparent text-white outline-none font-semibold text-xs sm:text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     />
-                    <button type="button" onClick={() => setExpectedStatus((p) => Math.min(599, p + 1))} disabled={loading} className="text-gray-400 hover:text-white p-1 transition-colors">
-                      <Plus size={16} />
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setExpectedStatus((p) => Math.min(599, p + 1))
+                      }
+                      disabled={loading}
+                      className="text-gray-400 hover:text-white p-1 transition-colors"
+                    >
+                      <Plus size={14} />
                     </button>
                   </div>
                 </div>
               </div>
 
-              {/* 5. TIMEOUT + INTERVAL — stacked on mobile, 2-col on md+ */}
+              {/* Timeout + Interval */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className={labelCls}>Timeout</label>
-                  <select value={timeout} onChange={(e) => setTimeoutValue(e.target.value)} disabled={loading} className={selectCls}>
+                  <label className={`${labelCls} text-xs sm:text-sm`}>
+                    Timeout
+                  </label>
+
+                  <select
+                    value={timeout}
+                    onChange={(e) => setTimeoutValue(e.target.value)}
+                    disabled={loading}
+                    className="w-full h-9 sm:h-11 rounded-md bg-[rgba(255,255,255,0.01)] border border-white/10 px-3 sm:px-4 text-gray-300 font-semibold cursor-pointer outline-none text-xs sm:text-sm"
+                  >
                     {timeoutOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="bg-[#111827] text-white">{opt.label}</option>
+                      <option
+                        key={opt.value}
+                        value={opt.value}
+                        className="bg-[#111827] text-white"
+                      >
+                        {opt.label}
+                      </option>
                     ))}
                   </select>
                 </div>
+
                 <div>
-                  <label className={labelCls}>Check Interval</label>
-                  <select value={interval} onChange={(e) => setIntervalValue(e.target.value)} disabled={loading} className={selectCls}>
+                  <label className={`${labelCls} text-xs sm:text-sm`}>
+                    Check Interval
+                  </label>
+
+                  <select
+                    value={interval}
+                    onChange={(e) => setIntervalValue(e.target.value)}
+                    disabled={loading}
+                    className="w-full h-9 sm:h-11 rounded-md bg-[rgba(255,255,255,0.01)] border border-white/10 px-3 sm:px-4 text-gray-300 font-semibold cursor-pointer outline-none text-xs sm:text-sm"
+                  >
                     {intervalOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value} className="bg-[#111827] text-white">{opt.label}</option>
+                      <option
+                        key={opt.value}
+                        value={opt.value}
+                        className="bg-[#111827] text-white"
+                      >
+                        {opt.label}
+                      </option>
                     ))}
                   </select>
                 </div>
               </div>
 
-              {/* ACTION */}
-              <div className="flex justify-end pt-2 sm:pt-4">
+              {/* Action */}
+              <div className="flex justify-end pt-1 sm:pt-4">
                 <button
-                  type="submit" disabled={loading}
-                  className="w-full sm:w-auto px-6 h-11 sm:h-12 rounded-lg bg-[var(--primary)] text-white font-semibold flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-blue-500/10 text-sm sm:text-base"
+                  type="submit"
+                  disabled={loading}
+                  className="w-full sm:w-auto px-5 sm:px-6 h-10 sm:h-12 rounded-lg bg-[var(--primary)] text-white font-semibold flex items-center justify-center gap-2 sm:gap-3 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-blue-500/10 text-sm sm:text-base"
                 >
                   {loading ? "Establishing Node..." : "Start Monitoring"}
-                  <ArrowRight size={17} />
+
+                  <ArrowRight
+                    size={16}
+                    className="sm:w-[17px] sm:h-[17px]"
+                  />
                 </button>
               </div>
             </motion.form>

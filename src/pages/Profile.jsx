@@ -7,7 +7,7 @@ import {
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid 
 } from "recharts";
 import { 
-  User, Mail, Shield, Settings, LogOut, Activity, Folder, AlertTriangle, CheckCircle2,
+  User, Mail, Shield, Settings, LogOut, Activity, Folder, AlertTriangle, CheckCircle,
   Calendar, Edit3, Menu, X
 } from "lucide-react";
 
@@ -125,7 +125,7 @@ function Profile() {
     return (
       <Layout>
         <PageWrapper>
-          <div className="w-full min-h-[80vh] flex items-center justify-center">
+          <div className="w-[90%] sm:w-full max-w-4xl mx-auto min-h-[75vh] sm:min-h-[80vh] flex items-center justify-center">
              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
           </div>
         </PageWrapper>
@@ -160,12 +160,12 @@ function Profile() {
   return (
     <Layout>
       <PageWrapper>
-        <main className="w-full max-w-7xl mx-auto pt-20 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
+       <main className="w-[90%] sm:w-full max-w-7xl mx-auto pt-16 sm:pt-28 lg:pt-32 pb-12 sm:pb-24 px-3 sm:px-6 lg:px-8">
           
           {/* Page Header */}
-          <div className="mb-6 sm:mb-10 border-b border-slate-800 pb-5 sm:pb-6 flex items-start justify-between gap-4">
+          <div className="mb-6 mt-6 sm:mb-10 mt-0 border-b border-slate-800 pb-5 sm:pb-6 flex items-start justify-between gap-4">
             <div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white tracking-tight">Account Settings</h1>
+              <h1 className="text-2xl sm:text-2xl lg:text-3xl font-medium text-white tracking-tight">Account Settings</h1>
               <p className="text-slate-400 text-xs sm:text-sm mt-1.5">Manage your personal data, global workspace analytics, and platform security.</p>
             </div>
             {/* Mobile sidebar toggle */}
@@ -433,15 +433,15 @@ function Profile() {
 
                   {!isEditingProfile ? (
                     <div className="space-y-2 max-w-lg">
-                      <div className="grid grid-cols-1 sm:grid-cols-3 items-start sm:items-center gap-1 sm:gap-0 p-3 rounded-xl bg-[#0f172a] border border-slate-800">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 items-start sm:items-center gap-1 sm:gap-0 p-3 rounded-lg bg-[#0f172a] border border-slate-800">
                         <div className="col-span-1 text-xs sm:text-sm font-semibold text-slate-500 flex items-center gap-2"><User size={15}/> Full Name</div>
                         <div className="sm:col-span-2 text-sm sm:text-md text-slate-200 font-medium sm:pl-2">{user.name}</div>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 items-start sm:items-center gap-1 sm:gap-0 p-3 rounded-xl bg-[#0f172a] border border-slate-800">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 items-start sm:items-center gap-1 sm:gap-0 p-3 rounded-lg bg-[#0f172a] border border-slate-800">
                         <div className="col-span-1 text-xs sm:text-sm font-semibold text-slate-500 flex items-center gap-2"><Mail size={15}/> Email Address</div>
                         <div className="sm:col-span-2 text-sm sm:text-md text-slate-200 font-medium sm:pl-2 break-all">{user.email}</div>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 items-start sm:items-center gap-1 sm:gap-0 p-3 rounded-xl bg-[#0f172a] border border-slate-800">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 items-start sm:items-center gap-1 sm:gap-0 p-3 rounded-lg bg-[#0f172a] border border-slate-800">
                         <div className="col-span-1 text-xs sm:text-sm font-semibold text-slate-500 flex items-center gap-2"><Calendar size={15}/> Member Since</div>
                         <div className="sm:col-span-2 text-sm sm:text-md text-slate-200 font-medium sm:pl-2">
                           {new Date(user.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
@@ -500,7 +500,7 @@ function Profile() {
                   )}
                   {passwordStatus.success && (
                     <div className="mb-6 p-4 bg-blue-900/20 border border-blue-900/50 rounded-xl text-blue-400 text-sm flex items-start gap-2">
-                      <CheckCircle2 size={18} className="shrink-0 mt-0.5"/> {passwordStatus.success}
+                      <CheckCircle size={18} className="shrink-0 mt-0.5"/> {passwordStatus.success}
                     </div>
                   )}
 
@@ -510,7 +510,7 @@ function Profile() {
                       <input
                         type="password" required value={passwordForm.current}
                         onChange={(e) => setPasswordForm({...passwordForm, current: e.target.value})}
-                        className="w-full bg-[#020617] border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-blue-500 transition-all text-sm"
+                        className="w-full bg-[#020617] border border-slate-800 rounded-lg px-4 py-2 sm:py-3 text-slate-200 focus:outline-none focus:border-blue-500 transition-all text-sm"
                       />
                     </div>
                     <div>
@@ -518,7 +518,7 @@ function Profile() {
                       <input
                         type="password" required minLength={6} value={passwordForm.new}
                         onChange={(e) => setPasswordForm({...passwordForm, new: e.target.value})}
-                        className="w-full bg-[#020617] border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-blue-500 transition-all text-sm"
+                        className="w-full bg-[#020617] border border-slate-800 rounded-lg px-4 py-2 sm:py-3 text-slate-200 focus:outline-none focus:border-blue-500 transition-all text-sm"
                       />
                     </div>
                     <div>
@@ -526,13 +526,13 @@ function Profile() {
                       <input
                         type="password" required minLength={6} value={passwordForm.confirm}
                         onChange={(e) => setPasswordForm({...passwordForm, confirm: e.target.value})}
-                        className="w-full bg-[#020617] border border-slate-800 rounded-lg px-4 py-3 text-slate-200 focus:outline-none focus:border-blue-500 transition-all text-sm"
+                        className="w-full bg-[#020617] border border-slate-800 rounded-lg px-4 py-2 sm:py-3 text-slate-200 focus:outline-none focus:border-blue-500 transition-all text-sm"
                       />
                     </div>
                     <div className="pt-2">
                       <button
                         type="submit" disabled={passwordStatus.loading}
-                        className="w-full sm:w-auto px-4 py-3 bg-blue-700 hover:bg-blue-500 text-white rounded-lg font-bold text-sm transition-colors disabled:opacity-50 mb-4"
+                        className="w-full sm:w-auto px-4 py-3 bg-blue-700 hover:bg-blue-500 text-white rounded-lg font-semibold text-sm transition-colors disabled:opacity-50 mb-4"
                       >
                         {passwordStatus.loading ? "Updating..." : "Update Password"}
                       </button>
@@ -548,7 +548,7 @@ function Profile() {
                     <Settings size={32} className="text-slate-500" />
                   </div>
                   <h2 className="text-lg sm:text-xl font-bold text-white mb-2">Advanced Preferences</h2>
-                  <p className="text-slate-500 text-sm max-w-xs sm:max-w-sm">
+                  <p className="text-slate-500 text-xs sm:text-sm max-w-xs sm:max-w-sm">
                     Configure webhooks, notification rules, and timezone settings here in future updates.
                   </p>
                 </div>
@@ -561,8 +561,8 @@ function Profile() {
 
       {/* SECURE LOGOUT MODAL */}
       {showLogoutModal && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-[#0f172a] border border-slate-800 rounded-lg w-full max-w-sm shadow-2xl relative overflow-hidden">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center p-2 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-[#0f172a] border border-slate-800 rounded-lg w-[90%] max-w-sm shadow-xl relative overflow-hidden">
             <div className="p-5 sm:p-6">
               <div className="w-12 h-12 rounded-full border-none flex items-center justify-center text-red-500 mb-4 mx-auto">
                 <LogOut size={24} />

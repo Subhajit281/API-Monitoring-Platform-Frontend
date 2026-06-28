@@ -23,7 +23,7 @@ function Sidebar() {
   const navItems = [
     { path: "/",                label: "Home",           icon: House },
     { path: "/projects",        label: "Projects",      icon: FolderOpen },
-    { path: "/create-project",  label: "Create Project", icon: FilePenLine },
+    { path: "/create-project",  label: "Create", icon: FilePenLine },
     { path: "/project-monitors",label: "Monitors",       icon: Activity },
     { path: "/incident",        label: "Incidents",      icon: AlertTriangle },
     { path: "/profile",         label: "Profile",        icon: User },
@@ -55,12 +55,12 @@ function Sidebar() {
           md:hidden
           fixed bottom-0 left-0 right-0 z-50
           flex items-center justify-around
-          px-4 py-6
+         py-0
           safe-area-bottom
         "
         style={{
           background: "rgba(24, 36, 58, 0.85)",
-          borderTop: "2px solid rgba(255,255,255,0.08)",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
         }}
@@ -83,9 +83,9 @@ function Sidebar() {
                   backgroundColor: isActive ? "transparent" : "transparent",
                 }}
               >
-                <Icon size={34} />
+                <Icon size={19} />
               </span>
-              <span className="text-[12px] font-medium mt-2 leading-none tracking-wide">
+              <span className="text-[11px] font-white mt-0 mb-1 leading-none tracking-wide">
                 {item.label}
               </span>
             </NavLink>

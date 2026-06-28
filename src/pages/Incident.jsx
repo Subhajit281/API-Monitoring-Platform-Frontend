@@ -40,12 +40,12 @@ function Incident() {
   return (
     <Layout>
       <PageWrapper>
-        <main className="w-[92%] sm:w-[85%] md:w-[80%] max-w-6xl mx-auto pt-24 sm:pt-32 pb-24">
+        <main className="w-[90%] sm:w-[85%] md:w-[80%] max-w-6xl mx-auto pt-24 sm:pt-32 pb-24">
 
           {/* HEADER */}
           <section className="mb-6 sm:mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight flex items-center gap-3">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-medium text-white tracking-tight flex items-center gap-3">
                 <AlertTriangle
                   className={activeCount > 0 ? "text-red-500 animate-pulse" : "text-gray-500"}
                   size={26}
@@ -97,20 +97,20 @@ function Incident() {
                 <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-red-500" />
               </div>
             ) : filteredIncidents.length === 0 ? (
-              <div className="flex flex-col items-center text-center py-16 sm:py-24 bg-[rgba(255,255,255,0.01)] border border-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-xl">
+              <div className="flex flex-col items-center text-center py-16 sm:py-24  border-none rounded-lg p-6 sm:p-8">
                 {filter === "ACTIVE" ? (
                   <>
                     <CheckCircle size={44} className="text-blue-500/80 mb-4" />
                     <h2 className="text-xl sm:text-2xl font-semibold text-white">All Systems Operational</h2>
-                    <p className="text-[var(--muted)] text-sm max-w-sm mt-2">
+                    <p className="text-[var(--muted)] text-xs sm:text-sm max-w-sm mt-2">
                       There are currently no active alerts across any of your workspaces.
                     </p>
                   </>
                 ) : (
                   <>
-                    <FolderOpen size={44} className="text-gray-500/50 mb-4" />
-                    <h2 className="text-xl sm:text-2xl font-bold text-white">No Records Found</h2>
-                    <p className="text-[var(--muted)] text-sm max-w-sm mt-2">
+                    <FolderOpen size={35} className="text-gray-500/50 mb-4" />
+                    <h2 className="text-xl sm:text-2xl font-semibold text-white">No Records Found</h2>
+                    <p className="text-[var(--muted)] text-sm sm:text-sm max-w-sm mt-2">
                       There are no incidents matching this filter.
                     </p>
                   </>

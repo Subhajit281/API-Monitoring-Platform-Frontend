@@ -30,17 +30,17 @@ function CreateProjects() {
   return (
     <Layout>
       <PageWrapper>
-        <main className="w-full max-w-3xl mx-auto pt-20 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-6">
+        <main className="w-[90%] max-w-3xl mx-auto pt-20 sm:pt-28 pb-20 sm:pb-24 px-4 sm:px-6">
 
           {/* HERO */}
           <section className="mb-10 sm:mb-16">
-            <p className="uppercase tracking-[0.35em] text-blue-400 text-xs sm:text-sm mb-2">
+            <p className="uppercase tracking-[0.35em] text-blue-400 text-xs font-bold mb-3 sm:mb-6">
               Project Setup
             </p>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white leading-tight">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-medium text-white leading-tight">
               Create Your Project.
             </h1>
-            <p className="text-[var(--muted)] text-base sm:text-lg max-w-2xl mt-3">
+            <p className="text-[var(--muted)] text-sm text-base sm:text-lg max-w-2xl mt-3">
               Projects help organize monitors, incidents and status pages for your workspace.
             </p>
           </section>
@@ -55,25 +55,42 @@ function CreateProjects() {
             >
               {/* PROJECT NAME */}
               <div>
-                <label className="block text-white mb-2 sm:mb-3 text-sm sm:text-base">Project Name</label>
+                <label className="block text-white mb-2 sm:mb-3 text-xs font-semibold sm:text-base">Project Name</label>
                 <input
                   type="text"
                   placeholder="Frontend Monitoring"
                   value={projectName}
                   onChange={(e) => setProjectName(e.target.value)}
-                  className="w-full h-11 sm:h-12 rounded-lg bg-[rgba(255,255,255,0.03)] px-4 sm:px-5 text-white outline-none text-sm sm:text-base"
+                  className="w-full h-9 sm:h-11 rounded-md bg-[rgba(255,255,255,0.01)] border border-white/10 px-3 sm:px-4 text-gray-300 font-semibold focus:border-blue-500  outline-none text-xs sm:text-sm"
                 />
               </div>
 
               {/* DESCRIPTION */}
               <div className="mt-6 sm:mt-8">
-                <label className="block text-white mb-2 sm:mb-3 text-sm sm:text-base">Description</label>
+                <label className="block text-white mb-2 sm:mb-3 text-xs sm:text-sm font-semibold">
+                  Description
+                </label>
+
                 <textarea
                   rows={4}
                   placeholder="eg: Monitor frontend services and APIs."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full rounded-lg bg-[rgba(255,255,255,0.03)] px-4 sm:px-5 py-3 sm:py-4 text-white resize-none outline-none text-sm sm:text-base"
+                  className="
+                    w-full
+                    min-h-[90px] sm:min-h-[110px]
+                    rounded-md
+                    bg-[rgba(255,255,255,0.01)]
+                    border border-white/10
+                    px-3 sm:px-4
+                    py-2.5 sm:py-3
+                    text-xs sm:text-sm
+                    text-gray-300
+                    resize-none
+                    outline-none
+                    focus:border-blue-500
+                    transition-all
+                  "
                 />
               </div>
 
@@ -83,7 +100,7 @@ function CreateProjects() {
                   type="button"
                   onClick={handleCreateProject}
                   disabled={loading}
-                  className="px-5 h-10 sm:h-11 rounded-lg bg-[var(--primary)] text-white font-semibold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base transition-all"
+                  className="px-3 h-9 sm:h-11 rounded-lg bg-blue-700 text-white font-semibold flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base transition-all"
                 >
                   {loading ? "Creating..." : "Create & Next"}
                   <ArrowRight size={17} />

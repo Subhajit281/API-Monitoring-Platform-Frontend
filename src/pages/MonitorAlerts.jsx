@@ -32,13 +32,13 @@ function MonitorAlerts() {
   return (
     <Layout>
       <PageWrapper>
-        <main className="w-full max-w-5xl mx-auto pt-20 sm:pt-28 lg:pt-32 pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
+        <main className="w-[94%] sm:w-full max-w-5xl mx-auto pt-22 sm:pt-28 lg:pt-32 pb-12 sm:pb-24 px-3 sm:px-6 lg:px-8">
 
           {/* HEADER */}
           <section className="mb-8 sm:mb-10">
             <button
               onClick={() => navigate(`/projects/${projectId}`)}
-              className="flex items-center gap-2 text-[var(--muted)] hover:text-white transition-colors mb-5 sm:mb-6 text-sm font-medium"
+              className="flex items-center gap-2 text-[var(--muted)] hover:text-white transition-colors mb-5 sm:mb-6 text-sm font-bold"
             >
               <ArrowLeft size={15} />
               Back to Monitors
@@ -46,10 +46,10 @@ function MonitorAlerts() {
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-medium text-white tracking-tight mb-1.5 sm:mb-2">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-medium text-white tracking-tight mb-1.5 sm:mb-2">
                   Incident Log
                 </h1>
-                <p className="text-[var(--muted)] text-sm flex flex-wrap items-center gap-1">
+                <p className="text-[var(--muted)] text-xs sm:text-sm flex flex-wrap items-center gap-1">
                   Viewing alert history for
                   <span className="font-semibold text-white">
                     {data.monitor?.name || "Loading..."}

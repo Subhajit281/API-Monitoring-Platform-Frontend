@@ -60,21 +60,35 @@ function Dashboard() {
   return (
     <Layout>
       <PageWrapper>
-        <main className="w-[92%] sm:w-[90%] md:w-[80%] max-w-7xl mx-auto pt-24 sm:pt-32 pb-24">
+        <main className="w-[84%] sm:w-[90%] md:w-[80%] max-w-7xl mx-auto pt-24 sm:pt-32 pb-24">
 
           {/* HEADER */}
           <section className="mb-8 sm:mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight mb-2 sm:mb-4">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-medium text-white tracking-tight mb-2 sm:mb-4">
                 Workspace Overview
               </h1>
-              <p className="text-[var(--muted)] text-sm sm:text-md max-w-xl sm:max-w-[350px]">
+              <p className="text-[var(--muted)] text-xs sm:text-sm max-w-xl sm:max-w-[400px]">
                 Analyze active synthetic test scopes, service statuses, and operational alerts across infrastructures.
               </p>
             </div>
             <button
               onClick={() => navigate("/create-project")}
-              className="px-4 h-10 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-all shadow-lg shadow-blue-500/10 flex items-center gap-1 shrink-0 self-start sm:self-auto"
+              className="
+                px-2 sm:px-4
+                h-8 sm:h-10
+                bg-blue-600 hover:bg-blue-700
+                text-white
+                text-xs sm:text-sm
+                font-semibold
+                rounded-md
+                transition-all
+                shadow-lg shadow-blue-500/10
+                flex items-center
+                gap-1 sm:gap-2
+                shrink-0
+                self-start sm:self-auto
+              "
             >
               <Plus size={18} />
               Create Project
@@ -89,42 +103,78 @@ function Dashboard() {
 
           {/* STATS ROW */}
           {!loading && (
-            <section className="grid grid-cols-3 gap-2 mb-2">
-              <div className="bg-[rgba(255,255,255,0.02)] backdrop-blur-lg border-b border-r border-gray-500/40 rounded-md p-3 sm:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-xl gap-2">
+            <section className="grid grid-cols-3 gap-2 sm:gap-4 mb-2">
+              <div className="
+                bg-[rgba(255,255,255,0.02)]
+                backdrop-blur-lg
+                border-b-2 border-r-2  border-gray-500/40
+                rounded-lg
+                px-2 py-3
+                sm:p-5
+                flex flex-col justify-center
+                sm:flex-row sm:justify-between
+                items-center sm:items-center
+                shadow-xl
+                min-h-[78px] sm:min-h-[120px]
+              ">
                 <div>
                   <p className="text-[10px] sm:text-[12px] font-bold tracking-widest text-[var(--muted)] uppercase mb-1">
                     Projects
                   </p>
                   <p className="text-xl sm:text-2xl font-medium text-white">{data.stats?.totalProjects || 0}</p>
                 </div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border-none">
-                  <FolderOpen className="text-gray-400" size={18} />
+                <div className="hidden sm:flex w-10 h-10 rounded-xl items-center justify-center">
+                  <FolderOpen className="text-gray-400" size={20} />
                 </div>
               </div>
 
-              <div className="bg-[rgba(255,255,255,0.02)] backdrop-blur-lg border-b border-r border-gray-500/40 rounded-md p-3 sm:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-xl gap-2">
+              <div className="
+                bg-[rgba(255,255,255,0.02)]
+                backdrop-blur-lg
+                border-b-2 border-r-2 border-gray-500/40
+                rounded-lg
+                px-2 py-3
+                sm:p-5
+                flex flex-col justify-center
+                sm:flex-row sm:justify-between
+                items-center sm:items-center
+                shadow-xl
+                min-h-[78px] sm:min-h-[120px]
+              ">
                 <div>
                   <p className="text-[10px] sm:text-[12px] font-bold tracking-widest text-[var(--muted)] uppercase mb-1">
                     Monitors
                   </p>
                   <p className="text-xl sm:text-2xl font-medium text-white">{data.stats?.totalMonitors || 0}</p>
                 </div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border-none">
-                  <Activity className="text-gray-400" size={18} />
+                <div className="hidden sm:flex w-10 h-10 rounded-xl items-center justify-center">
+                  <Activity className="text-gray-400" size={20} />
                 </div>
               </div>
 
-              <div className="bg-[rgba(255,255,255,0.02)] backdrop-blur-lg border-b border-r border-gray-500/40 rounded-md p-3 sm:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-xl gap-2">
+              <div className="
+                bg-[rgba(255,255,255,0.02)]
+                backdrop-blur-lg
+                border-b-2 border-r-2 border-gray-500/40
+                rounded-lg
+                px-2 py-3
+                sm:p-5
+                flex flex-col justify-center
+                sm:flex-row sm:justify-between
+                items-center sm:items-center
+                shadow-xl
+                min-h-[78px] sm:min-h-[120px]
+              ">
                 <div>
                   <p className="text-[10px] sm:text-[12px] font-bold tracking-widest text-[var(--muted)] uppercase mb-1">
                     Incidents
                   </p>
                   <p className="text-xl sm:text-2xl font-medium text-white">{data.stats?.activeIncidents || 0}</p>
                 </div>
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border-none">
+                <div className="hidden sm:flex w-10 h-10 rounded-xl items-center justify-center">
                   <AlertTriangle
                     className={data.stats?.activeIncidents > 0 ? "text-red-500 animate-pulse" : "text-gray-400"}
-                    size={18}
+                    size={20}
                   />
                 </div>
               </div>
@@ -171,7 +221,7 @@ function Dashboard() {
                         <h3 className="text-lg sm:text-xl font-bold text-gray-200 mb-2 line-clamp-1">
                           {project.name}
                         </h3>
-                        <p className="text-[var(--muted)] text-sm leading-relaxed line-clamp-2 min-h-[32px]">
+                        <p className="text-[var(--muted)] text-xs sm:text-sm leading-relaxed line-clamp-2 min-h-[32px]">
                           {project.description}
                         </p>
                       </div>
@@ -182,7 +232,7 @@ function Dashboard() {
                             <Activity size={14} className="text-blue-300" />
                             {project.monitorCount} monitor
                           </span>
-                          <span>{new Date(project.createdAt).toLocaleDateString()}</span>
+                          <span className="text-xs">{new Date(project.createdAt).toLocaleDateString()}</span>
                         </div>
 
                         {project.monitorCount === 0 ? (

@@ -103,19 +103,19 @@ function ProjectMonitors() {
   return (
     <Layout>
       <PageWrapper>
-        <main className="w-full max-w-7xl mx-auto pt-20 sm:pt-28 lg:pt-32 pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
+        <main className="w-[95%] sm:w-full max-w-7xl mx-auto pt-22 sm:pt-28 lg:pt-32 pb-12 sm:pb-24 px-3 sm:px-6 lg:px-8">
 
           {/* HEADER */}
           <section className="mb-8 sm:mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <p className="uppercase tracking-[0.35em] text-blue-400 text-xs font-bold mb-3 sm:mb-6">Project Control Unit</p>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white tracking-tight">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-medium text-white tracking-tight">
                 {project ? `${project.name} Monitors` : "Loading Workspace..."}
               </h1>
             </div>
             <button
               onClick={() => navigate(`/projects/${projectId}/monitors/create`)}
-              className="self-start sm:self-auto px-4 h-10 sm:h-11 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-all shadow-lg shadow-blue-500/10 text-sm whitespace-nowrap"
+              className="self-start sm:self-auto px-4 h-9 sm:h-11 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-all  shadow-blue-500/10 text-xs sm:text-sm whitespace-nowrap"
             >
               + Add Monitor
             </button>
@@ -133,7 +133,7 @@ function ProjectMonitors() {
                 <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500" />
               </div>
             ) : monitorsData.length === 0 ? (
-              <div className="flex flex-col items-center text-center py-16 sm:py-20 bg-[rgba(255,255,255,0.01)] border border-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8">
+              <div className="flex flex-col items-center text-center py-16 sm:py-20 border-none p-6 sm:p-8">
                 <Activity size={40} className="text-amber-400/80 mb-4 animate-pulse" />
                 <h2 className="text-lg sm:text-xl font-bold text-white">No Monitors Configured</h2>
                 <p className="text-[var(--muted)] text-sm max-w-xs mt-2 mb-6">
@@ -230,13 +230,13 @@ function ProjectMonitors() {
                     <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-white/5">
                       <button
                         type="button" onClick={() => openEditModal(monitor)}
-                        className="flex-1 sm:flex-none px-4 py-2.5 bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.08)] border border-white/20 text-white rounded-md font-semibold text-xs sm:text-sm transition-all"
+                        className="flex-1 sm:flex-none px-2 py-2.5 bg-[rgba(255,255,255,0.04)] hover:bg-[rgba(255,255,255,0.08)] border border-white/20 text-white rounded-md font-semibold text-xs sm:text-sm transition-all"
                       >
                         Edit Monitor
                       </button>
                       <button
                         onClick={() => navigate(`/projects/${projectId}/monitors/${monitor.id}/alerts`)}
-                        className="flex-1 sm:flex-none px-4 py-2.5 bg-[rgba(255,255,255,0.02)] border border-red-500/20 text-red-500 font-semibold rounded-md transition-all text-xs sm:text-sm flex items-center justify-center gap-2"
+                        className="flex sm:flex-none px-4 py-2.5 bg-[rgba(255,255,255,0.02)] border border-red-500/20 text-red-500 font-semibold rounded-md transition-all text-xs sm:text-sm flex items-center justify-center gap-1"
                       >
                         <AlertTriangle size={13} /> View Alerts
                       </button>
@@ -317,8 +317,8 @@ function ProjectMonitors() {
 
       {/* DELETE MODAL */}
       {deleteConfirmId && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-[#111928] border border-white/10 rounded-lg w-full max-w-sm shadow-2xl p-6 sm:p-8 text-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-black/60 backdrop-blur-sm">
+          <div className="bg-[#111928] border border-white/10 rounded-lg w-[90%] max-w-sm shadow-xl p-6 sm:p-8 text-center">
             <div className="mx-auto w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-5 sm:mb-6 border-none ">
               <Trash2 size={26} className="text-red-500" />
             </div>

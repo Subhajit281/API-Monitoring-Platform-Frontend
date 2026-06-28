@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <Layout>
       <PageWrapper>
-        <main className="w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] mx-auto pt-24 sm:pt-28 pb-24">
+        <main className="w-[80%] sm:w-[90%] md:w-[90%] lg:w-[80%] mx-auto pt-24 sm:pt-28 pb-24">
 
           {/* HERO */}
           <section className="min-h-[75vh] flex flex-col justify-center items-center text-center">
@@ -75,25 +75,29 @@ const Home = () => {
               Observe. Detect. Resolve.
             </h1>
 
-            <p className="text-[var(--muted)] text-base sm:text-lg md:text-xl max-w-xs sm:max-w-xl md:max-w-3xl mt-6 sm:mt-8">
+            <p className="text-[var(--muted)] text-base sm:text-lg md:text-xl max-w-sm sm:max-w-xl md:max-w-3xl mt-6 sm:mt-8">
               Monitor websites, APIs and services with powerful uptime tracking,
               incident management and public status pages.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 sm:mt-10 w-full sm:w-auto">
+            <div className="flex gap-3 mt-8 sm:mt-10 w-[90%] sm:w-auto text-sm sm:text-base">
               <button
                 onClick={handleCreateProject}
                 className="
-                  px-5 py-3
+                  flex-1 sm:flex-none
+                  px-2 sm:px-6
+                  py-2
                   rounded-lg
                   bg-[var(--primary)]
                   text-white
                   flex items-center justify-center gap-2
                   font-medium
-                  w-full sm:w-auto
+                  whitespace-nowrap
+                  transition-all
+                  hover:opacity-90
                 "
               >
-                Create Project
+                <span>Create Project</span>
                 <ArrowRight size={18} />
               </button>
 
@@ -104,11 +108,17 @@ const Home = () => {
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
                 className="
-                  px-7 py-3
+                  flex-1 sm:flex-none
+                  px-2 sm:px-7
+                  py-2
                   rounded-lg
                   border border-[var(--border)]
                   text-white
-                  w-full sm:w-auto
+                  flex items-center justify-center
+                  font-medium
+                  whitespace-nowrap
+                  transition-all
+                  hover:bg-white/5
                 "
               >
                 Explore Features
@@ -132,7 +142,7 @@ const Home = () => {
           <div id="features" className="pt-1">
 
             {/* Section 1: Monitor everything */}
-            <section className="mt-24 sm:mt-32 md:mt-40 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-18 items-start">
+            <section className="mt-24 sm:mt-32 md:mt-40 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 md:gap-16 items-start">
               <img
                 src={heroTablet}
                 alt="API Monitoring Dashboard"
@@ -140,7 +150,7 @@ const Home = () => {
                   h-[260px]
                   sm:h-[320px]
                   md:h-[400px]
-                  w-full
+                  w-[90%]
                   rounded-3xl
                   object-contain
                   md:scale-104
@@ -262,7 +272,7 @@ const Home = () => {
                     <h4 className="text-white font-semibold text-base sm:text-lg mb-1">
                       1. Create a Workspace
                     </h4>
-                    <p className="text-slate-400 text-sm sm:text-md truncate">
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                       Group your monitors logically by project, client, or environment.
                     </p>
                   </div>
@@ -270,7 +280,7 @@ const Home = () => {
                     to="/create-project"
                     className="flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors shrink-0"
                   >
-                    <LinkIcon size={22} className="sm:w-[26px] sm:h-[26px]" />
+                    <LinkIcon size={21} className="sm:w-[26px] sm:h-[26px]" />
                   </Link>
                 </div>
 
@@ -283,7 +293,7 @@ const Home = () => {
                     <h4 className="text-white font-bold text-base sm:text-lg mb-1">
                       2. Deploy your first Monitor
                     </h4>
-                    <p className="text-slate-400 text-sm sm:text-md truncate">
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                       Add the URL of the website or API endpoint you want to track.
                     </p>
                   </div>
@@ -298,7 +308,7 @@ const Home = () => {
                     <h4 className="text-white font-bold text-base sm:text-lg mb-1">
                       3. Stay Alerted with the Incident Overview
                     </h4>
-                    <p className="text-slate-500 text-sm sm:text-md truncate">
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                       Get email notifications so you know immediately when a monitor fails.
                     </p>
                   </div>
@@ -309,7 +319,7 @@ const Home = () => {
           </div>
 
           {/* CTA */}
-          <section className="mt-24 sm:mt-40 text-center px-4">
+          <section className="mt-15 sm:mt-20 text-center px-4">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white">
               Ready to monitor smarter?
             </h2>
@@ -322,7 +332,7 @@ const Home = () => {
               onClick={handleStartMonitoring}
               className="
                 mt-8 sm:mt-10
-                px-8 py-3
+                px-6 py-3
                 rounded-lg
                 bg-[var(--primary)]
                 text-white

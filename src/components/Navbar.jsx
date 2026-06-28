@@ -73,10 +73,10 @@ function Navbar() {
           top-4
           left-1/2
           -translate-x-1/2
-          w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%]
+          w-[90%]
           max-w-7xl
-          h-16
-          px-7
+          h-11 sm:h-14 lg:h-16
+          px-5 sm:px-7
           flex
           items-center
           justify-between
@@ -96,7 +96,7 @@ function Navbar() {
 
           {/* Logo (Always Visible) */}
           <Link to="/" className="flex items-center gap-3">
-            <h1 className="text-xl font-bold text-white tracking-tight">
+            <h1 className="text-md sm:text-lg font-bold text-white tracking-tight">
               UpFlow
             </h1>
           </Link>
@@ -227,7 +227,7 @@ function Navbar() {
             aria-label="Open menu"
             aria-expanded={isMobileMenuOpen}
           >
-            <Menu size={28} />
+            <Menu size={21} />
           </button>
 
         </div>
@@ -247,7 +247,7 @@ function Navbar() {
 
       {/* Sliding panel */}
       <aside
-        className={`fixed top-0 right-0 h-full w-[85%] max-w-[360px] z-[100] md:hidden flex flex-col transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[75%] max-w-[360px] z-[100] md:hidden flex flex-col transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{
@@ -263,7 +263,7 @@ function Navbar() {
           className="flex items-center justify-between px-5 h-16 border-b shrink-0"
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
-          <span className="text-lg font-bold text-white tracking-tight">UpFlow</span>
+          <span className="text-lg font-bold text-blue-400 tracking-tight">UpFlow</span>
           <button
             onClick={closeMobileMenu}
             className="text-slate-300 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/5"
@@ -386,11 +386,11 @@ function Navbar() {
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
           {isAuthenticated ? (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-0">
               <Link
                 to="/profile"
                 onClick={closeMobileMenu}
-                className="flex items-center gap-3 text-white font-medium hover:bg-white/5 p-2.5 rounded-lg transition-colors"
+                className="flex items-center gap-2 text-white font-medium hover:bg-white/5 p-2.5 rounded-lg transition-colors"
               >
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs"
@@ -402,7 +402,7 @@ function Navbar() {
               </Link>
               <button
                 onClick={() => { navigate(`/incident`); closeMobileMenu(); }}
-                className="flex items-center gap-3 text-white font-medium hover:bg-white/5 p-2.5 rounded-lg transition-colors text-left"
+                className="flex items-center gap-2 text-white font-medium hover:bg-white/5 p-2.5 rounded-lg transition-colors text-left"
               >
                 <div className="w-8 h-8 flex items-center justify-center text-blue-400">
                   <MailWarning size={20} />
@@ -411,7 +411,7 @@ function Navbar() {
               </button>
               <button
                 onClick={handleLogout}
-                className="mt-1 w-[50%] text-center py-2 text-red-400 hover:text-white font-medium rounded-xl hover:bg-white/5 transition-colors border border-white/10"
+                className="mt-1 w-[64%] text-center py-1 text-red-400 hover:text-white font-medium rounded-lg  transition-colors border-none"
               >
                 Log out
               </button>
@@ -439,8 +439,8 @@ function Navbar() {
 
       {/* SECURE LOGOUT MODAL */}
       {showLogoutModal && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-[#0f172a] border border-slate-800 rounded-lg w-full max-w-sm shadow-2xl relative overflow-hidden">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center p-2 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-[#0f172a] border border-slate-800 rounded-lg w-[90%] max-w-sm shadow-xl relative overflow-hidden">
             <div className="p-5 sm:p-6">
               <div className="w-12 h-12 rounded-full border-none flex items-center justify-center text-red-500 mb-4 mx-auto">
                 <LogOut size={24} />
