@@ -15,17 +15,19 @@ import MonitorHub from "./pages/MonitorHub";
 import MonitorAlerts from "./pages/MonitorAlerts";
 import ProtectedRoute from "./routes/ProtectedRoutes";
 import ProjectOverview from "./pages/ProjectOverview";
+import OAuthCallback from "./pages/auth/OAuthCallback";
 
 function App() {
   return (
     <>
-      {/* Mounted ONCE for the app's entire lifetime — survives every route change */}
+     
       <FixedBackground />
 
       <Routes>
         {/* PUBLIC AUTHENTICATION ROUTES */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/auth/oauth/callback" element={<OAuthCallback />} />
         <Route path="/" element={<Home />} />
 
         {/* PROTECTED WORKSPACE ROUTES */}
