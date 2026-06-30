@@ -15,7 +15,7 @@ const OAuthCallback = () => {
 
         localStorage.setItem("token", token);
 
-        navigate("/projects");
+        navigate("/");
     }, [navigate, searchParams]);
 
     return (
